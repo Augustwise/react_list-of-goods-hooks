@@ -42,33 +42,18 @@ export const App = () => {
 
   const handleSortAlphabetically = () => {
     setSortField(SortType.Alphabetically);
+    setIsReversed(false);
+    const sorted = sortAlphabetically([...goodsFromServer]);
 
-    if (isReversed) {
-      setIsReversed(true);
-      const sorted = sortAlphabetically([...goodsFromServer], true);
-
-      setGoods(sorted);
-    } else {
-      setIsReversed(false);
-      const sorted = sortAlphabetically([...goodsFromServer]);
-
-      setGoods(sorted);
-    }
+    setGoods(sorted);
   };
 
   const handleSortByLength = () => {
     setSortField(SortType.ByLength);
-    if (isReversed) {
-      setIsReversed(true);
-      const sorted = sortByLength([...goodsFromServer], true);
+    setIsReversed(false);
+    const sorted = sortByLength([...goodsFromServer]);
 
-      setGoods(sorted);
-    } else {
-      setIsReversed(false);
-      const sorted = sortByLength([...goodsFromServer]);
-
-      setGoods(sorted);
-    }
+    setGoods(sorted);
   };
 
   const handleReverse = () => {
